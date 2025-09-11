@@ -1,0 +1,207 @@
+:root{
+    --background-color: #101114;
+    --primary-color: #1c1d20;
+    --secondary-color: #4a4d57;
+    --accent-color: #00ffc4;
+    --text-color: #f9f9f9;
+    --list-width: 800px;
+    --max-width: 90%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+}
+
+body{
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------------------------------------------------- h1 ---------------------------------------- */
+
+h1{
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+/* ------------------------------------------------- form ---------------------------------------- */
+
+form{
+    width: var(--list-width);
+    max-width: var(--max-width);
+
+    position: relative;
+}
+
+form input{
+    width: 100%;
+    background-color: var(--background-color);
+    font-family: inherit;
+    font-size: 1.3em;
+    padding-block: 0.6em;
+    padding-left: 1em;
+    border: solid var(--secondary-color);
+    border-radius: 5em;
+    color: var(--text-color);
+    caret-color: var(--accent-color);
+}
+
+form input:focus{
+    outline: none;
+}
+
+form button{
+    position: absolute;
+    right: 0;
+    font-size: 1.3em;
+    font-family: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    height: 100%;
+    padding-inline: 1.5em;
+    border-radius: 5em;
+    border: none;
+    background-color: var(--accent-color);
+}
+
+form button:hover{
+    cursor: pointer;
+}
+
+/* ------------------------------------------------- list ---------------------------------------- */
+
+ul{
+    width: var(--list-width);
+    max-width: var(--max-width)
+}
+
+ul li{
+    background-color: var(--primary-color);
+    margin-top: 0.6em;
+    font-size: 1.3em;
+
+    display: flex;
+    align-items: center;
+    border-radius: 0.7em;
+
+    padding: 0 1em;
+}
+
+li input{
+    display: none;
+}
+
+.checkbox{
+    border: 0.1em solid var(--accent-color);
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    /* margin-left: 0.8em; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: none;
+    transition: 200ms ease;
+}
+
+li input:checked ~ .checkbox{
+    background: var(--accent-color);
+}
+
+.checkbox svg{
+    transition: 200ms ease;
+}
+
+li input:checked ~ .checkbox svg{
+    fill: var(--primary-color);
+}
+
+.todo-text{
+    padding-block: 0.7em;
+    flex-grow: 1;
+    padding-left: 0.8em;
+    transition: 200ms ease;
+    min-width: 0;
+}
+
+li input:checked ~ .todo-text{
+    text-decoration: line-through;
+    color: var(--secondary-color);
+}
+
+.edit-button{
+    background: none;
+    border: none;
+    margin-right: 2em;
+}
+
+.edit-button svg{
+    fill: var(--secondary-color);
+    transition: 200ms ease;
+}
+
+.edit-button:hover{
+    cursor: pointer;
+}
+
+.edit-button:hover svg{
+    fill: var(--accent-color);
+}
+
+.edit-button.editing svg{
+    fill: var(--accent-color);
+}
+
+.delete-button{
+    background: none;
+    border: none;
+}
+
+.delete-button svg{
+    fill: var(--secondary-color);
+    transition: 200ms ease;
+}
+
+.delete-button:hover{
+    cursor: pointer;
+}
+
+.delete-button:hover svg{
+    fill: #ff0033;
+}
+
+@media(max-width: 500px){
+    html{
+        font-size: 0.9rem;
+    }
+
+    h1{
+        margin-top: 1.5em;
+        font-size: 15vw;
+    }
+
+    form button{
+        position: unset;
+
+        margin-top: 0.5em;
+        width: 100%;
+        padding-block: 0.5em;
+    }
+}
