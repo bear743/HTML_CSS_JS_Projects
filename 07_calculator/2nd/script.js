@@ -123,11 +123,70 @@ class Calculator{
                 break
             case '-':
                 computation = prev - current
+                break
+            case '*':
+                computation = prev * current
+                break
+            case '/':
+                if(current === 0){
+                    this.currentInput = 'Error: Div by 0'
+                    this.resetCalculator()
+                    return
+                }
+                computation = prev / current
+                break
+            default:
+                return
         }
+
+        this.currentInput = this.roundResult(computation).toString()
+        this.operation = null
+        this.previousInput = ''
+        this.shouldResetScreen = true
+    }
+
+    roundResult(num){
+        // Round to avoid floating point precision issues
+        return Math.round(num * 100000000) / 100000000
+    }
+
+    clear(){
+        this.currentInput = '0'
+        this.previousInput = ''
+        this.operation = null
+        this.shouldResetScreen = false
+    }
+
+    backspace(){
+        if(this.currentInput.length === 1 || (this.currentInput.length === 2 && this.currentInput.startsWith('-'))){
+            this.currentInput = '0'
+        }
+        else{
+            this.currentInput = this.currentInput.slice(0, -1)
+        }
+    }
+
+    negate(){
+        this.currentInput = (parseFloat(this.currentInput) * -1).toString()
+    }
+
+    percentage(){
+        this.currentInput = (parseFloat(this.currentInput) / 100).toString()
+    }
+
+    updateDisplay(){
+        this.display.value = this.currentInput
+    }
+
+    resetCalculator(){
+        setTimeout(() => {
+            this.clear()
+            this.updateDisplay()
+        }, 1500)
     }
 }
 
-// const keys = document.getElementById('keys')
-// keys.addEventListener('click', (e) => {
-//             console.log(e)
-//         })
+// Initialize calculator when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new Calculator()
+})
