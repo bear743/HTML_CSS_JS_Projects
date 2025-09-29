@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100vh;
+    font-family: "Shantell Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    border: 0.4em, solid;
+    border-radius: 0.6em;
+    width: min(40em, 100%);
+    height: min(22em, 55%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    text-align: end;
+}
+
+#timezone{
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(173, 181, 188);
+}
+
+#time{
+    font-size: 5rem;
+    font-weight: 600;
+    width: 6ch;
+}
+
+#date{
+    font-size: 1rem;
+    font-weight: 600;
+}
