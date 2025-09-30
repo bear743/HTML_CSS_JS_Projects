@@ -8,11 +8,53 @@
 </head>
 <body>
     <div>
-        <p id="timezone">China / Shenzhen</p>
+        <div class="area">
+            <p id="timezone">Asia / Hong Kong</p>
+            <button data-micromodal-trigger="modal-1"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/></svg></button>
+        </div>
         <p id="time">06:35:00</h1>
         <p id="date">Monday, September 9, 2025</p>
     </div>
+    
+
+        <!-- Modal -->
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <!-- <header class="modal__header">
+                    <h2 class="modal__title" id="modal-1-title">
+                        Change Timezone
+                    </h2>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                    <p>
+                        Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
+                    </p>
+                </main>
+                <footer class="modal__footer">
+                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                </footer> -->
+                <p class="modal-header">Change Timezone</p>
+                <div>
+                    <select name="timezones" id="timezones">
+                        <option value="option-placeholder">Pick a timezone</option>
+                    </select>
+                    <button class="apply-btn" data-micromodal-close>Apply</button>
+                    <button class="get-tz-btn"> Get Your Timezone </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/timezone.js"></script>
+    <script>
+        dayjs.extend(dayjs_plugin_utc)
+        dayjs.extend(dayjs_plugin_timezone)
+    </script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
