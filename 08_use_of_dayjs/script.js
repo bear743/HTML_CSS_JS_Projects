@@ -34,7 +34,7 @@ function populateTimezones(){
 function setupTimezoneChange(){
     const timezoneSelect = document.getElementById('timezones')
     const applyButton = document.querySelector('.apply-btn')
-    const getTzButton = document.querySelector('get-tz-btn')
+    const getTzButton = document.querySelector('.get-tz-btn')
 
     applyButton.addEventListener('click', () => {
         const selectedTimezone = timezoneSelect.value
@@ -45,7 +45,9 @@ function setupTimezoneChange(){
     })
 
     getTzButton.addEventListener('click', () => {
-        
+        const userTimezone = dayjs.tz.guess()
+
+        timezoneSelect.value = userTimezone
     })
 }
 
